@@ -52,6 +52,7 @@ cp -af chinacache/code %{buildroot}%{prefix}
 %pre
 
 %post
+mkdir -vp /data/proclog/log/hpc/flexi_rcpt_mansubi/
 
 %preun
 

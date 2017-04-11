@@ -34,6 +34,7 @@ cp -af chinacache/nginx.conf %{buildroot}/%{prefix}/conf/nginx.conf
 %pre
 
 %post
+mkdir -vp /data/proclog/log/hpc/flexi_rcpt_mansubi/
 
 %preun
 
