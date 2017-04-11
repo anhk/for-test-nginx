@@ -1,0 +1,33 @@
+diff -Naur a/src/ngx_http_tfs.c b/src/ngx_http_tfs.c
+--- a/src/ngx_http_tfs.c	2016-11-10 16:04:54.771867445 +0800
++++ b/src/ngx_http_tfs.c	2016-11-10 17:47:55.687866950 +0800
+@@ -1041,7 +1041,7 @@
+             return;
+         }
+ 
+-        n = c->recv_chain(c, chain);
++        n = c->recv_chain(c, chain, 0);
+ 
+         if (n == NGX_AGAIN) {
+             if (chain->buf->last == chain->buf->end) {
+diff -Naur a/src/ngx_http_tfs_module.c b/src/ngx_http_tfs_module.c
+--- a/src/ngx_http_tfs_module.c	2016-11-10 16:04:54.771867445 +0800
++++ b/src/ngx_http_tfs_module.c	2016-11-10 20:34:50.857866149 +0800
+@@ -683,7 +683,7 @@
+ 
+     value = cf->args->elts;
+ 
+-    tscf->log = ngx_log_create(cf->cycle, &value[1]);
++    tscf->log = ngx_pcalloc(cf->pool, sizeof(ngx_log_t)); 
+     if (tscf->log == NULL) {
+         return NGX_CONF_ERROR;
+     }
+@@ -692,7 +692,7 @@
+         tscf->log->log_level = NGX_LOG_INFO;
+     }
+ 
+-    return ngx_log_set_levels(cf, tscf->log);
++    return NGX_CONF_OK;
+ }
+ 
+ 
