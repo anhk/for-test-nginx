@@ -16,3 +16,5 @@ if not res then
 end
 
 sock:proxy_response(res)
+
+sock:set_keepalive()
