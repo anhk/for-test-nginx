@@ -45,6 +45,7 @@ cd -
 mkdir -vp %{buildroot}%{prefix}/{sbin,logs,html,conf}
 cp -af objs/nginx %{buildroot}%{prefix}/sbin/
 cp -af chinacache/nginx.conf %{buildroot}%{prefix}/conf/nginx.conf
+cp -af chinacache/code %{buildroot}%{prefix}
 
 %clean
 
@@ -60,6 +61,7 @@ cp -af chinacache/nginx.conf %{buildroot}%{prefix}/conf/nginx.conf
 %{prefix}/conf
 %{prefix}/html
 %{prefix}/logs
+%{prefix}/code
 %{prefix}/LuaJIT
 
 %changelog

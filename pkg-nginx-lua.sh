@@ -39,6 +39,7 @@ mkdir -vp $SOURCES/$name-$version/chinacache
 find nginx-lua-config/ \( -name *.diff -o -name *.patch \) -exec cp {} $SOURCES/ \;
 cp -af nginx-lua-config/fortest.spec $SOURCES/fortest.spec
 cp -af nginx-lua-config/nginx.conf $SOURCES/$name-$version/chinacache
+cp -af nginx-lua-config/code $SOURCES/$name-$version/chinacache
 
 sed -i "s@^Name:.*@Name: $name@" $SOURCES/fortest.spec
 sed -i "s@^Version:.*@Version: $version@" $SOURCES/fortest.spec
