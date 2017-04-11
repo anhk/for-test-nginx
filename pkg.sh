@@ -33,7 +33,9 @@ rm -fr ${BUILD_DIR}
 echo "%_topdir ${BUILD_DIR}" > ~/.rpmmacros
 mkdir -vp ${BUILD_DIR}/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 cp -af $NGINX_DIR $SOURCES/$name-$version
+mkdir -vp $SOURCES/$name-$version/chinacache
 cp -af fortest.spec $SOURCES/fortest.spec
+cp -af nginx-config $SOURCES/$name-$version/chinacache
 
 sed -i "s@^Name:.*@Name: $name@" $SOURCES/fortest.spec
 sed -i "s@^Version:.*@Version: $version@" $SOURCES/fortest.spec

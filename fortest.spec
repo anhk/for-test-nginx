@@ -25,7 +25,9 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{prefix}
 make %{?_smp_mflags}
 
 %install
-make install DESTDIR=%{buildroot}
+mkdir -vp %{buildroot}/%{prefix}/{sbin,logs,html,conf}
+cp -af objs/nginx %{buildroot}/%{prefix}/sbin/
+cp -af chinacache/nginx-config/nginx.conf %{buildroot}/%{prefix}/conf/nginx.conf
 
 %clean
 
